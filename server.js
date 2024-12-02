@@ -8,9 +8,9 @@ app.use(express.json());
 
 // Oracle DB 연결 설정
 const dbConfig = {
-    user: 'your_username',
-    password: 'your_password',
-    connectString: 'localhost:1521/your_service_name'
+    user: 'libdb',
+    password: '1234',
+    connectString: 'localhost:1521/xe'
 };
 
 // 도서 목록 조회
