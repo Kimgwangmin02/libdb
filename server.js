@@ -78,4 +78,19 @@ app.delete('/books/:id', async (req, res) => {
 
 app.listen(3000, () => {
     console.log('서버가 3000번 포트에서 실행중입니다.');
+}).on('error', (err) => {
+    console.error('서버 시작 오류:', err);
 });
+
+// DB 연결 테스트 추가
+async function testDBConnection() {
+    try {
+        const connection = await oracledb.getConnection(dbConfig);
+        console.log('데이터베이스 연결 성공');
+        await connection.close();
+    } catch (err) {
+        console.error('데이터베이스 연결 오류:', err);
+    }
+}
+
+testDBConnection();
